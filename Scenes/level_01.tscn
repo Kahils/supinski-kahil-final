@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bxua55j6dn5th" path="res://Scenes/player.tscn" id="1_f6slu"]
 [ext_resource type="PackedScene" uid="uid://domq2l8k6xucd" path="res://Scenes/ghost.tscn" id="2_fr3la"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_fr3la"]
+font_size = 33
+
 [node name="Level_01" type="Node2D" unique_id=1602714501]
 
 [node name="Player" parent="." unique_id=2133583004 instance=ExtResource("1_f6slu")]
@@ -10,3 +13,11 @@ position = Vector2(314, 317)
 
 [node name="Ghost" parent="." unique_id=1929413101 instance=ExtResource("2_fr3la")]
 position = Vector2(817.00006, 325)
+
+[node name="Label" type="Label" parent="." unique_id=1127841806]
+offset_left = 279.0
+offset_top = 137.0
+offset_right = 929.0
+offset_bottom = 183.0
+text = "Help fix player and ghost not interacting "
+label_settings = SubResource("LabelSettings_fr3la")

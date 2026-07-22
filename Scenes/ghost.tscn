@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4j4yvfqoi2yq" path="res://Assets/Holloween_Pack/ghost1.png" id="1_3mxmt"]
 [ext_resource type="Script" uid="uid://78g3yflrgmet" path="res://Scripts/ghost.gd" id="1_e3r4w"]
+[ext_resource type="AudioStream" uid="uid://cfsuqs73b0c0m" path="res://Assets/Audio/HitEnemy.wav" id="3_108wt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3r4w"]
 atlas = ExtResource("1_3mxmt")
@@ -127,7 +128,7 @@ script = ExtResource("1_e3r4w")
 sprite_frames = SubResource("SpriteFrames_pe55a")
 animation = &"move_right"
 autoplay = "move_down"
-frame_progress = 0.13551196
+frame_progress = 0.984946
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=509954865]
 position = Vector2(-0.39999998, 0.79999995)
@@ -137,6 +138,10 @@ shape = SubResource("CapsuleShape2D_3mxmt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight" unique_id=907575212]
 shape = SubResource("CircleShape2D_3mxmt")
+
+[node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=1211360878]
+stream = ExtResource("3_108wt")
+pitch_scale = 0.75
 
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_exited" from="Sight" to="." method="_on_sight_body_exited"]
