@@ -5,14 +5,22 @@ const SPEED = 300.0
 
 var last_direction: Vector2 = Vector2.RIGHT
 var is_attacking: bool = false
+var hitbox_offset: Vector2
 
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var swing_sword = $SwingSword
+@onready var hitbox = $Hitbox
 
+
+func _ready() -> void:
+	
+	hitbox_offset = hitbox.position
 
 
 func _physics_process(_delta: float) -> void:
-	
+	# Disable hitbox until attack is triggered 
+	hitbox.monitoring = false
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		attack()
 	
@@ -33,6 +41,7 @@ func process_movement() -> void:
 	if direction != Vector2.ZERO:
 		velocity = direction * SPEED
 		last_direction = direction 
+		update_hitbox_offset()
 	else: 
 		velocity = Vector2.ZERO
 
@@ -63,10 +72,37 @@ func play_animation(prefix: String, direction: Vector2) -> void:
 
 func attack() -> void:
 	is_attacking = true
+	hitbox.monitoring = true 
+	swing_sword.play()
 	play_animation("attack", last_direction)
-	print("attack")
+	
 
 
 func _on_animated_sprite_2d_animation_finished():
 	if is_attacking:
 		is_attacking = false
+
+
+
+#-----------------------------------------------------------
+# HITBOX
+#-----------------------------------------------------------
+
+func update_hitbox_offset() -> void:
+	var x := hitbox_offset.x
+	var y := hitbox_offset.y
+	
+	match last_direction:
+		Vector2.LEFT:
+			hitbox.position = Vector2(-x, y)
+		Vector2.RIGHT:
+			hitbox.position = Vector2(x, y)
+		Vector2.UP:
+			hitbox.position = Vector2(y, -x)
+		Vector2.DOWN:
+			hitbox.position = Vector2(-y, x)
+
+
+func _on_hitbox_body_entered(body):
+	if is_attacking and body.name.begins_with("slime"):
+		print("HIT")
