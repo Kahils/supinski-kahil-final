@@ -4,12 +4,23 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 var last_direction: Vector2 = Vector2.RIGHT
+var is_attacking: bool = false
+
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 
 func _physics_process(_delta: float) -> void:
+	
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		attack()
+	
+	# skip movement if attacking 
+	if is_attacking:
+		velocity = Vector2.ZERO
+		return
+
 	process_movement()
 	process_animation()
 	move_and_slide()
@@ -28,10 +39,13 @@ func process_movement() -> void:
 
 
 func process_animation() -> void:
+	if is_attacking:
+		return
 	if velocity != Vector2.ZERO:
 		play_animation("run", last_direction)
 	else:
 		play_animation("idle", last_direction)
+
 
 func play_animation(prefix: String, direction: Vector2) -> void:
 	if direction.x != 0:
@@ -41,3 +55,18 @@ func play_animation(prefix: String, direction: Vector2) -> void:
 		animated_sprite_2d.play(prefix + "_up")
 	elif direction.y > 0:
 		animated_sprite_2d.play(prefix + "_down")
+
+
+#-----------------------------------------------------------
+# ATTACKING
+#-----------------------------------------------------------
+
+func attack() -> void:
+	is_attacking = true
+	play_animation("attack", last_direction)
+	print("attack")
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if is_attacking:
+		is_attacking = false

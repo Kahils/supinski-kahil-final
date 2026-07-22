@@ -426,5 +426,8 @@ script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828057821]
 sprite_frames = SubResource("SpriteFrames_vq3lt")
-animation = &"idle_up"
-frame_progress = 0.6854673
+animation = &"attack_up"
+
+[node name="SwingSword" type="AudioStreamPlayer2D" parent="." unique_id=1504761337]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
