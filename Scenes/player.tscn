@@ -421,8 +421,11 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(10.25, 6)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
-size = Vector2(18, 20)
+size = Vector2(18, 15)
 
 [node name="Player" type="CharacterBody2D" unique_id=2133583004]
 scale = Vector2(4, 4)
@@ -430,7 +433,12 @@ script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828057821]
 sprite_frames = SubResource("SpriteFrames_vq3lt")
-animation = &"attack_down"
+animation = &"attack_right"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732736636]
+position = Vector2(0.125, 4)
+shape = SubResource("RectangleShape2D_vgqql")
 
 [node name="SwingSword" type="AudioStreamPlayer2D" parent="." unique_id=1504761337]
 stream = ExtResource("3_6t5aa")
@@ -441,7 +449,7 @@ position = Vector2(7.5, -0.5)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=194558397]
-position = Vector2(1.625, -1)
+position = Vector2(1.625, 0.5)
 shape = SubResource("RectangleShape2D_6t5aa")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

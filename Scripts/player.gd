@@ -104,5 +104,5 @@ func update_hitbox_offset() -> void:
 
 
 func _on_hitbox_body_entered(body):
-	if is_attacking and body.name.begins_with("slime"):
+	if is_attacking and body.name.begins_with("ghost"):
 		print("HIT")
