@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://domq2l8k6xucd"]
 
 [ext_resource type="Texture2D" uid="uid://4j4yvfqoi2yq" path="res://Assets/Holloween_Pack/ghost1.png" id="1_3mxmt"]
-[ext_resource type="Script" uid="uid://78g3yflrgmet" path="res://Scripts/ghost.gd" id="1_e3r4w"]
+[ext_resource type="Script" uid="uid://78g3yflrgmet" path="res://Scripts/enemy.gd" id="1_e3r4w"]
+[ext_resource type="Texture2D" uid="uid://b18v8ivc33gvf" path="res://Assets/Holloween_Pack/hallowicons_1.png" id="2_3btnm"]
 [ext_resource type="AudioStream" uid="uid://cfsuqs73b0c0m" path="res://Assets/Audio/HitEnemy.wav" id="3_108wt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe55a"]
+atlas = ExtResource("2_3btnm")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvq3t"]
+atlas = ExtResource("2_3btnm")
+region = Rect2(96, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3r4w"]
 atlas = ExtResource("1_3mxmt")
@@ -54,6 +63,17 @@ region = Rect2(52, 108, 26, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pe55a"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe55a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvq3t")
+}],
+"loop": false,
+"name": &"die",
+"speed": 0.25
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e3r4w")
@@ -126,9 +146,10 @@ script = ExtResource("1_e3r4w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=575866293]
 sprite_frames = SubResource("SpriteFrames_pe55a")
-animation = &"move_right"
+animation = &"die"
 autoplay = "move_down"
-frame_progress = 0.984946
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=509954865]
 position = Vector2(-0.39999998, 0.79999995)

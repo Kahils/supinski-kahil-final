@@ -1,3 +1,4 @@
+class_name Enemy 
 extends CharacterBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
@@ -42,6 +43,14 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 	
 func _die() -> void:
 	is_alive = false
+	animated_sprite_2d.play("die")
+	
+	take_damage_sound.pitch_scale = 0.5
+	take_damage_sound.play()
+	
+	#Disable Collision
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Sight/CollisionShape2D.set_deferred("disabled", true)
 	
 func _on_sight_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -50,6 +59,6 @@ func _on_sight_body_entered(body: Node2D) -> void:
 
 
 func _on_sight_body_exited(body):
-	if body.name == "Player":
+	if body.name == "Player" and is_alive:
 		target = null 
 		animated_sprite_2d.play("move_down")

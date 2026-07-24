@@ -15,9 +15,9 @@ position = Vector2(314, 317)
 position = Vector2(817.00006, 325)
 
 [node name="Label" type="Label" parent="." unique_id=1127841806]
-offset_left = 279.0
-offset_top = 137.0
-offset_right = 929.0
-offset_bottom = 183.0
+offset_left = 32.0
+offset_top = -56.0
+offset_right = 682.0
+offset_bottom = -10.0
 text = "Help fix player and ghost not interacting "
 label_settings = SubResource("LabelSettings_fr3la")
