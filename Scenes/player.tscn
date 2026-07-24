@@ -456,6 +456,8 @@ shape = SubResource("RectangleShape2D_6t5aa")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2067883679]
 limit_left = 0
 limit_top = 0
+limit_right = 3840
+limit_bottom = 2368
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
