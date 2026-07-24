@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://78g3yflrgmet" path="res://Scripts/enemy.gd" id="1_e3r4w"]
 [ext_resource type="Texture2D" uid="uid://b18v8ivc33gvf" path="res://Assets/Holloween_Pack/hallowicons_1.png" id="2_3btnm"]
 [ext_resource type="AudioStream" uid="uid://cfsuqs73b0c0m" path="res://Assets/Audio/HitEnemy.wav" id="3_108wt"]
+[ext_resource type="PackedScene" uid="uid://cfgg6py0a114m" path="res://Scenes/health_bar.tscn" id="5_taxxh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pe55a"]
 atlas = ExtResource("2_3btnm")
@@ -163,6 +164,9 @@ shape = SubResource("CircleShape2D_3mxmt")
 [node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=1211360878]
 stream = ExtResource("3_108wt")
 pitch_scale = 0.75
+
+[node name="HealthBar" parent="." unique_id=74699469 instance=ExtResource("5_taxxh")]
+position = Vector2(-9, -18)
 
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_exited" from="Sight" to="." method="_on_sight_body_exited"]
