@@ -1997,11 +1997,11 @@ texture = ExtResource("2_1p3c2")
 13:10/0 = 0
 13:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:10/0 = 0
-14:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -2.3503933, -0.9575672, -2.3503933, -1.3057747, 8, -8, 8)
 15:10/0 = 0
-15:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -2.1762905, -8, -2.0021877)
 16:10/0 = 0
-16:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -2.3503933, 8, -2.1762905, -1.4798775, -8, -2.3503933)
 17:10/0 = 0
 17:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:10/0 = 0
@@ -2057,9 +2057,9 @@ texture = ExtResource("2_1p3c2")
 13:11/0 = 0
 13:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:11/0 = 0
-14:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -0.43525887, -8, -0.43525887, 8, -8, 8)
 16:11/0 = 0
-16:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.8727036, -8, 8, -8, 8, 8, -2.8727036, 8)
 17:11/0 = 0
 17:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:11/0 = 0
@@ -3045,6 +3045,9 @@ sources/6 = SubResource("TileSetAtlasSource_rhnep")
 sources/7 = SubResource("TileSetAtlasSource_jmddh")
 sources/8 = SubResource("TileSetAtlasSource_c6e1r")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3crse"]
+size = Vector2(114, 100)
+
 [node name="LevelRoot" type="Node2D" unique_id=76756293]
 y_sort_enabled = true
 
@@ -3059,9 +3062,16 @@ tile_map_data = PackedByteArray("AAAEAAMABAADAAUAAAAEAAQABAADAAYAAAAEAAUAAAAFAA8
 tile_set = SubResource("TileSet_5tswo")
 
 [node name="Player" parent="." unique_id=2133583004 instance=ExtResource("3_yep4q")]
-position = Vector2(48, 604)
+position = Vector2(3162, 1078)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=347401092]
 
 [node name="Ghost" parent="Enemies" unique_id=1929413101 instance=ExtResource("4_pe5gb")]
 position = Vector2(744.99994, 601.99994)
+
+[node name="Exit" type="Area2D" parent="." unique_id=447551891]
+position = Vector2(3162, 690)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=546392523]
+shape = SubResource("RectangleShape2D_3crse")
