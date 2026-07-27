@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://4kqy2ge1oo73" path="res://Scenes/levels/base_level.tscn" id="1_m6h24"]
 
 [node name="LevelRoot" unique_id=76756293 instance=ExtResource("1_m6h24")]
+
+[node name="Ghost" parent="Enemies" parent_id_path=PackedInt32Array(347401092) index="0" unique_id=1929413101]
+position = Vector2(1548, 1836.9998)
