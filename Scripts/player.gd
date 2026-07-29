@@ -5,7 +5,6 @@ const SPEED = 300.0
 
 var last_direction: Vector2 = Vector2.RIGHT
 var is_attacking: bool = false
-var hitbox_offset: Vector2
 var strength: int = 20 
 
 
@@ -15,8 +14,8 @@ var strength: int = 20
 
 
 func _ready() -> void:
-	
-	hitbox_offset = hitbox.position
+	pass
+
 
 
 func _physics_process(_delta: float) -> void:
@@ -90,18 +89,17 @@ func _on_animated_sprite_2d_animation_finished():
 #-----------------------------------------------------------
 
 func update_hitbox_offset() -> void:
-	var x := hitbox_offset.x
-	var y := hitbox_offset.y
+
 	
 	match last_direction:
 		Vector2.LEFT:
-			hitbox.position = Vector2(-x, y)
+			hitbox.rotation = deg_to_rad(180.0)
 		Vector2.RIGHT:
-			hitbox.position = Vector2(x, y)
+			hitbox.rotation = deg_to_rad(0.0)
 		Vector2.UP:
-			hitbox.position = Vector2(y, -x)
+			hitbox.rotation = deg_to_rad(-90.0)
 		Vector2.DOWN:
-			hitbox.position = Vector2(-y, x)
+			hitbox.rotation = deg_to_rad(90.0)
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:

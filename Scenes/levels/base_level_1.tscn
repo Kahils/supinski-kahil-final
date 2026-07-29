@@ -2,10 +2,42 @@
 
 [ext_resource type="PackedScene" uid="uid://4kqy2ge1oo73" path="res://Scenes/levels/base_level.tscn" id="1_m6h24"]
 
+[sub_resource type="Gradient" id="Gradient_m6h24"]
+colors = PackedColorArray(0.88397187, 0.5119703, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_anll5"]
+gradient = SubResource("Gradient_m6h24")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.75)
+
 [node name="LevelRoot" unique_id=76756293 instance=ExtResource("1_m6h24")]
 
 [node name="Player" parent="." index="2" unique_id=2133583004]
-position = Vector2(48, 585)
+position = Vector2(61, 598)
 
 [node name="Ghost" parent="Enemies" parent_id_path=PackedInt32Array(347401092) index="0" unique_id=1929413101]
 position = Vector2(1548, 1836.9998)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="5" unique_id=1435856791]
+color = Color(0.24985075, 0.24985075, 0.24985075, 1)
+
+[node name="Lights" type="Node" parent="." index="6" unique_id=573373821]
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights" index="0" unique_id=108340462]
+position = Vector2(34, 637)
+energy = 2.0
+texture = SubResource("GradientTexture2D_anll5")
+texture_scale = 15.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="Lights" index="1" unique_id=214904367]
+position = Vector2(2078, 1405)
+energy = 2.0
+texture = SubResource("GradientTexture2D_anll5")
+texture_scale = 15.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="Lights" index="2" unique_id=1888858953]
+position = Vector2(1250, 639)
+energy = 2.0
+texture = SubResource("GradientTexture2D_anll5")
+texture_scale = 15.0

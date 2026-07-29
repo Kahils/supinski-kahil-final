@@ -9,6 +9,7 @@ func _ready() -> void:
 	current_level_root = get_node("LevelRoot")
 	_load_level(level)
 
+	
 #-----------------------------------------------------------
 # Level Management
 #-----------------------------------------------------------

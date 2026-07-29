@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://ji3lsxd10gur" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bjvhrw1cb4sba" path="res://Assets/Cute_Fantasy/Player/Player.png" id="1_v0iea"]
 [ext_resource type="AudioStream" uid="uid://bkgh1od1snoni" path="res://Assets/Audio/Whoosh.wav" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://usjem2iol2cd" path="res://Scripts/light_manager.gd" id="4_vgqql"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vgqql"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -425,16 +429,26 @@ animations = [{
 size = Vector2(10.25, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
-size = Vector2(18, 15)
+size = Vector2(18, 30.5)
+
+[sub_resource type="Gradient" id="Gradient_6t5aa"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vgqql"]
+gradient = SubResource("Gradient_6t5aa")
+fill = 1
+fill_from = Vector2(0.51111114, 0.50427353)
+fill_to = Vector2(0.83931625, 0.85299146)
 
 [node name="Player" type="CharacterBody2D" unique_id=2133583004]
 scale = Vector2(4, 4)
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828057821]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_vgqql")
 sprite_frames = SubResource("SpriteFrames_vq3lt")
 animation = &"attack_right"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732736636]
 position = Vector2(0.125, 4)
@@ -445,12 +459,12 @@ stream = ExtResource("3_6t5aa")
 pitch_scale = 4.0
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=574877584]
-position = Vector2(7.5, -0.5)
+rotation = -1.5707964
 collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=194558397]
-position = Vector2(1.625, 0.5)
+position = Vector2(9, 0)
 shape = SubResource("RectangleShape2D_6t5aa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2067883679]
@@ -458,6 +472,13 @@ limit_left = 0
 limit_top = 0
 limit_right = 3840
 limit_bottom = 2368
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2098994108]
+energy = 1.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_vgqql")
+texture_scale = 0.5
+script = ExtResource("4_vgqql")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
