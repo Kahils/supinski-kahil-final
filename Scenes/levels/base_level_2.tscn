@@ -95,61 +95,69 @@ energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D11" type="PointLight2D" parent="Lights" index="1" unique_id=1338252118]
+[node name="PointLight2D12" type="PointLight2D" parent="Lights" index="1" unique_id=1039231212]
+position = Vector2(1884, 1896)
+scale = Vector2(1.54, 1.1386665)
+energy = 2.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_2l0a0")
+texture_scale = 1.5
+
+[node name="PointLight2D11" type="PointLight2D" parent="Lights" index="2" unique_id=1338252118]
 position = Vector2(1693, 1956)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D2" type="PointLight2D" parent="Lights" index="2" unique_id=1863871914]
+[node name="PointLight2D2" type="PointLight2D" parent="Lights" index="3" unique_id=1863871914]
 position = Vector2(2080, 2210)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D3" type="PointLight2D" parent="Lights" index="3" unique_id=1956673773]
+[node name="PointLight2D3" type="PointLight2D" parent="Lights" index="4" unique_id=1956673773]
 position = Vector2(2016, 1951)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D4" type="PointLight2D" parent="Lights" index="4" unique_id=1959714138]
+[node name="PointLight2D4" type="PointLight2D" parent="Lights" index="5" unique_id=1959714138]
 position = Vector2(2273, 1574)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D9" type="PointLight2D" parent="Lights" index="5" unique_id=1896913115]
+[node name="PointLight2D9" type="PointLight2D" parent="Lights" index="6" unique_id=1896913115]
 position = Vector2(3232, 2149)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D10" type="PointLight2D" parent="Lights" index="6" unique_id=782999020]
+[node name="PointLight2D10" type="PointLight2D" parent="Lights" index="7" unique_id=782999020]
 position = Vector2(3230, 671)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D8" type="PointLight2D" parent="Lights" index="7" unique_id=160403972]
+[node name="PointLight2D8" type="PointLight2D" parent="Lights" index="8" unique_id=160403972]
 position = Vector2(1891, 1120)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D5" type="PointLight2D" parent="Lights" index="8" unique_id=653110748]
+[node name="PointLight2D5" type="PointLight2D" parent="Lights" index="9" unique_id=653110748]
 position = Vector2(1504, 1571)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D6" type="PointLight2D" parent="Lights" index="9" unique_id=1966505071]
+[node name="PointLight2D6" type="PointLight2D" parent="Lights" index="10" unique_id=1966505071]
 position = Vector2(1245, 1060)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2l0a0")
 
-[node name="PointLight2D7" type="PointLight2D" parent="Lights" index="10" unique_id=1574167440]
+[node name="PointLight2D7" type="PointLight2D" parent="Lights" index="11" unique_id=1574167440]
 position = Vector2(286, 1054)
 energy = 2.5
 shadow_enabled = true
