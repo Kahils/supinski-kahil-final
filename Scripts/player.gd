@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 
@@ -11,6 +12,7 @@ var strength: int = 20
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var swing_sword = $SwingSword
 @onready var hitbox = $Hitbox
+@onready var flashlight : Flashlight = $Flashlight
 
 
 func _ready() -> void:

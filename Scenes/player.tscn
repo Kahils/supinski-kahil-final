@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bjvhrw1cb4sba" path="res://Assets/Cute_Fantasy/Player/Player.png" id="1_v0iea"]
 [ext_resource type="AudioStream" uid="uid://bkgh1od1snoni" path="res://Assets/Audio/Whoosh.wav" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://usjem2iol2cd" path="res://Scripts/light_manager.gd" id="4_vgqql"]
+[ext_resource type="PackedScene" uid="uid://ba1hl14mu0v62" path="res://Scenes/flashlight.tscn" id="5_fkybt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vgqql"]
 light_mode = 1
@@ -442,6 +443,7 @@ fill_to = Vector2(0.83931625, 0.85299146)
 
 [node name="Player" type="CharacterBody2D" unique_id=2133583004]
 scale = Vector2(4, 4)
+collision_layer = 4
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828057821]
@@ -479,6 +481,8 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_vgqql")
 texture_scale = 0.5
 script = ExtResource("4_vgqql")
+
+[node name="Flashlight" parent="." unique_id=1402874706 instance=ExtResource("5_fkybt")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

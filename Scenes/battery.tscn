@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c3li8kcty4gkh"]
+
+[ext_resource type="Script" uid="uid://bblur2v7gfskt" path="res://Scripts/battery.gd" id="1_23u8t"]
+[ext_resource type="Texture2D" uid="uid://cjolnj6afytba" path="res://Assets/Battery.png" id="1_mjabg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_23u8t"]
+radius = 19.104973
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mjabg"]
+light_mode = 1
+
+[node name="Battery" type="Area2D" unique_id=189742994]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_23u8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1313791500]
+shape = SubResource("CircleShape2D_23u8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=763073943]
+self_modulate = Color(1.347661e-06, 0.80883265, 0.8092438, 1)
+material = SubResource("CanvasItemMaterial_mjabg")
+scale = Vector2(1.125, 2)
+texture = ExtResource("1_mjabg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

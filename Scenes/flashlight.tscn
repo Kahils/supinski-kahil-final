@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ba1hl14mu0v62"]
+
+[ext_resource type="Texture2D" uid="uid://cput068vjnf3b" path="res://Assets/light5.png" id="1_5higp"]
+[ext_resource type="Script" uid="uid://en8vxqyjohm7" path="res://Scripts/flashlight.gd" id="1_ocaxa"]
+
+[node name="Flashlight" type="Node2D" unique_id=1402874706]
+script = ExtResource("1_ocaxa")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1314719168]
+shadow_enabled = true
+texture = ExtResource("1_5higp")
+offset = Vector2(5, 54.245)
+texture_scale = 0.06
+
+[node name="FalloffTimer" type="Timer" parent="." unique_id=1758759483]
+wait_time = 10.0
+one_shot = true
+
+[node name="FreshTimer" type="Timer" parent="." unique_id=137639254]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="FreshTimer" to="." method="_on_fresh_timer_timeout"]
